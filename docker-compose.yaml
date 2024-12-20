@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:5
+    container_name: mongodb_container
+    restart: always
+    ports:
+      - "27017:27017" # Map the MongoDB port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: examplepassword
+    volumes:
+      - mongodb_data:/data/db # Persist data to a volume
+
+volumes:
+  mongodb_data:
